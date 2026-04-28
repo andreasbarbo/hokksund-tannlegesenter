@@ -457,11 +457,12 @@
   .form-note{font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center}
   @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
 
-  /* MAP / LOCATION — full bleed */
+  /* MAP / LOCATION — full bleed, butts up against footer */
   .map-wrap{
-    width:100%;margin-top:80px;
+    width:100%;margin-top:80px;margin-bottom:0;
     overflow:hidden;line-height:0;
   }
+  .contact{padding-bottom:0}
   .map-wrap iframe{
     width:100%;height:460px;border:0;display:block;
     filter:grayscale(1) contrast(1.05);
