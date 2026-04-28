@@ -403,6 +403,7 @@
     display:flex;justify-content:space-between;align-items:center;
     gap:24px;margin-bottom:40px;flex-wrap:wrap;
   }
+  .team-head h2{line-height:1;display:flex;align-items:center}
   .carousel-controls{display:flex;gap:10px}
   .car-btn{
     width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);cursor:pointer;
