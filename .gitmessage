@@ -1,0 +1,15 @@
+# <type>(<scope>): <kort beskrivelse>
+#
+# Typer:
+#   feat     ny funksjonalitet
+#   fix      bugfix
+#   style    visuelle/CSS-endringer (ikke logikk)
+#   content  tekst, bilder, kopi
+#   refactor restrukturering uten funksjonell endring
+#   docs     dokumentasjon (CHANGELOG, README)
+#   chore    konfig, dependencies, deploy
+#   perf     ytelse
+#
+# Scope eksempler: hero, team, faq, priser, kontakt, header, footer
+#
+# Eksempel: feat(team): legg til karusell med navn og roller
