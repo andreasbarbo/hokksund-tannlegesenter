@@ -147,26 +147,37 @@
   header.site .brand{color:#fff}
   header.site .menu a{color:rgba(255,255,255,.92)}
   header.site .menu a:hover{color:#fff;text-shadow:0 0 12px rgba(255,255,255,.5)}
-  header.site .btn-ghost{
-    background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
+  /* Header: all three CTA elements as identical floating glass pills */
+  header.site .nav-cta .btn,
+  header.site .nav-cta .status-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:.7rem 1.15rem;
+    border-radius:999px;
+    font-size:.88rem;font-weight:500;line-height:1.2;
     color:#fff;
-    border:1px solid rgba(255,255,255,.35);
-    box-shadow:0 1px 0 rgba(255,255,255,.3) inset;
+    background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+    border:1px solid rgba(255,255,255,.22);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.28) inset,
+      0 -1px 0 rgba(0,0,0,.12) inset,
+      0 6px 18px rgba(0,0,0,.08);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    backdrop-filter:blur(14px) saturate(160%);
+    transition:background .2s ease, transform .15s ease, box-shadow .2s ease;
   }
-  header.site .btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.14));color:#fff}
+  header.site .nav-cta .btn:hover,
+  header.site .nav-cta .status-pill:hover{
+    background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
+    text-decoration:none;
+    transform:translateY(-1px);
+    box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 -1px 0 rgba(0,0,0,.12) inset, 0 10px 24px rgba(0,0,0,.12);
+  }
   header.site .menu-toggle{color:#fff}
 
   /* Open status pill */
   .status-pill{
     display:inline-flex;align-items:center;gap:8px;
-    padding:.65rem 1rem;border-radius:999px;
-    background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.08));
-    border:1px solid rgba(255,255,255,.32);
-    box-shadow:0 1px 0 rgba(255,255,255,.3) inset, 0 6px 16px rgba(0,0,0,.12);
-    color:#fff;font-size:.82rem;font-weight:500;letter-spacing:.01em;
-    line-height:1.2;
     cursor:default;
-    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   }
   .status-pill .dot{
     width:9px;height:9px;border-radius:50%;flex-shrink:0;
