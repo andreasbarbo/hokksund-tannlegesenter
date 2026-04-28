@@ -147,12 +147,15 @@
 <!-- TEAM -->
 <section class="team" id="team">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Team</span>
-      <h2>Vårt team</h2>
+    <div class="team-head reveal">
+      <h2 style="margin:0">Vårt team</h2>
+      <div class="carousel-controls" role="group" aria-label="Bla i team">
+        <button class="car-btn" id="car-prev" aria-label="Forrige">‹</button>
+        <button class="car-btn" id="car-next" aria-label="Neste">›</button>
+      </div>
     </div>
 
-    <div class="team-grid reveal">
+    <div class="carousel reveal" id="team-carousel" tabindex="0" aria-label="Team-medlemmer">
       <article class="member">
         <img src="bilder/Ansatte/9d9726_5709b20d16c748d5910fba307d725a94~mv2_d_4912_7360_s_4_2.jpg" alt="Ingun Løkensgard" />
         <h4>Ingun Løkensgard</h4><span>Tannlege</span>
@@ -449,6 +452,28 @@
     setInterval(compute, 60000);
   })();
 
+  // Team carousel
+  (function(){
+    const car = document.getElementById('team-carousel');
+    const prev = document.getElementById('car-prev');
+    const next = document.getElementById('car-next');
+    if(!car || !prev || !next) return;
+    const step = () => {
+      const first = car.querySelector('.member');
+      if(!first) return 320;
+      const gap = parseFloat(getComputedStyle(car).gap) || 22;
+      return first.getBoundingClientRect().width + gap;
+    };
+    const update = () => {
+      prev.disabled = car.scrollLeft <= 4;
+      next.disabled = car.scrollLeft + car.clientWidth >= car.scrollWidth - 4;
+    };
+    prev.addEventListener('click', () => car.scrollBy({left:-step()*2, behavior:'smooth'}));
+    next.addEventListener('click', () => car.scrollBy({left: step()*2, behavior:'smooth'}));
+    car.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
 </script>
 </body>
 </html>

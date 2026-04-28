@@ -375,22 +375,48 @@
   .price-note b{color:#fff}
   @media(max-width:900px){.price-grid{grid-template-columns:1fr}}
 
-  /* TEAM */
+  /* TEAM — carousel */
   .team{background:var(--cream-2)}
-  .team-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:36px 28px;
+  .team-head{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:24px;margin-bottom:40px;flex-wrap:wrap;
   }
-  .member{transition:transform .25s ease}
-  .member:hover{transform:translateY(-3px)}
+  .carousel-controls{display:flex;gap:10px}
+  .car-btn{
+    width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);cursor:pointer;
+    background:rgba(255,255,255,.7);
+    -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
+    color:var(--navy);font-size:1.4rem;line-height:1;
+    display:grid;place-items:center;
+    transition:transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .car-btn:hover{background:#fff;transform:translateY(-1px);border-color:var(--navy)}
+  .car-btn:disabled{opacity:.3;cursor:default;transform:none}
+
+  .carousel{
+    display:flex;gap:22px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    padding:8px 0 28px;
+    margin:0 -28px;padding-left:28px;padding-right:28px;
+    scrollbar-width:none;
+  }
+  .carousel::-webkit-scrollbar{display:none}
+  .member{
+    flex:0 0 calc((100% - 66px) / 4);
+    scroll-snap-align:start;
+    transition:transform .3s ease;
+  }
+  .member:hover{transform:translateY(-4px)}
   .member img{
     width:100%;aspect-ratio:3/4;object-fit:cover;
-    border-radius:14px;display:block;margin-bottom:18px;
+    border-radius:14px;display:block;margin-bottom:16px;
   }
   .member h4{margin:0 0 .25em;font-size:1.05rem;font-family:'Fraunces',serif;color:var(--navy);font-weight:500}
   .member span{display:block;color:var(--muted);font-size:.88rem;line-height:1.5}
-  @media(max-width:1000px){.team-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:680px){.team-grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}}
-  @media(max-width:420px){.team-grid{grid-template-columns:1fr}}
+  @media(max-width:1100px){.member{flex-basis:calc((100% - 44px) / 3)}}
+  @media(max-width:780px){.member{flex-basis:calc((100% - 22px) / 2)}}
+  @media(max-width:520px){.member{flex-basis:80%}}
 
   /* FAQ */
   .faq{background:var(--cream)}
