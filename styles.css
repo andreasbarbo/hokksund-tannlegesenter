@@ -398,7 +398,6 @@
     overflow-x:auto;scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
     padding:8px 0 28px;
-    margin:0 -28px;padding-left:28px;padding-right:28px;
     scrollbar-width:none;
   }
   .carousel::-webkit-scrollbar{display:none}
