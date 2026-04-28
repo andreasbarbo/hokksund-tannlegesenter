@@ -147,19 +147,12 @@
 <!-- TEAM -->
 <section class="team" id="team">
   <div class="wrap">
-    <div class="team-head reveal">
-      <div class="text">
-        <span class="eyebrow">Vårt team</span>
-        <h2>Møt oss som tar imot deg</h2>
-        <p style="color:var(--muted)">Erfarne tannleger, dyktige tannpleiere og hyggelige sekretærer — vi gleder oss til å se deg.</p>
-      </div>
-      <div class="carousel-controls" role="group" aria-label="Bla i team">
-        <button class="car-btn" id="car-prev" aria-label="Forrige">‹</button>
-        <button class="car-btn" id="car-next" aria-label="Neste">›</button>
-      </div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Team</span>
+      <h2>Vårt team</h2>
     </div>
 
-    <div class="carousel reveal" id="team-carousel" tabindex="0" aria-label="Team-medlemmer">
+    <div class="team-grid reveal">
       <article class="member">
         <img src="bilder/Ansatte/9d9726_5709b20d16c748d5910fba307d725a94~mv2_d_4912_7360_s_4_2.jpg" alt="Ingun Løkensgard" />
         <h4>Ingun Løkensgard</h4><span>Tannlege</span>
@@ -228,9 +221,7 @@
   <div class="blobs" aria-hidden="true"><span></span></div>
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Vanlige spørsmål</span>
-      <h2>Det folk lurer på</h2>
-      <p>Finner du ikke svaret du leter etter? Ta kontakt — vi svarer gjerne på telefon eller e-post.</p>
+      <h2>Vanlige spørsmål</h2>
     </div>
 
     <div class="faq-list">
@@ -458,28 +449,6 @@
     setInterval(compute, 60000);
   })();
 
-  // Team carousel
-  (function(){
-    const car = document.getElementById('team-carousel');
-    const prev = document.getElementById('car-prev');
-    const next = document.getElementById('car-next');
-    if(!car || !prev || !next) return;
-    const step = () => {
-      const first = car.querySelector('.member');
-      if(!first) return 320;
-      const gap = parseFloat(getComputedStyle(car).gap) || 20;
-      return first.getBoundingClientRect().width + gap;
-    };
-    const update = () => {
-      prev.disabled = car.scrollLeft <= 4;
-      next.disabled = car.scrollLeft + car.clientWidth >= car.scrollWidth - 4;
-    };
-    prev.addEventListener('click', () => car.scrollBy({left:-step()*2, behavior:'smooth'}));
-    next.addEventListener('click', () => car.scrollBy({left: step()*2, behavior:'smooth'}));
-    car.addEventListener('scroll', update, {passive:true});
-    window.addEventListener('resize', update);
-    update();
-  })();
 </script>
 </body>
 </html>
