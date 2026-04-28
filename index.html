@@ -457,19 +457,18 @@
   .form-note{font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center}
   @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
 
-  /* MAP / LOCATION */
+  /* MAP / LOCATION — full bleed */
   .map-wrap{
-    margin-top:60px;border-radius:var(--radius);overflow:hidden;
-    box-shadow:var(--glass-shadow);
-    border:var(--glass-border);
+    width:100%;margin-top:80px;
+    overflow:hidden;line-height:0;
   }
   .map-wrap iframe{
-    width:100%;height:420px;border:0;display:block;
+    width:100%;height:460px;border:0;display:block;
     filter:grayscale(1) contrast(1.05);
     transition:filter .4s ease;
   }
   .map-wrap:hover iframe{filter:grayscale(0) contrast(1)}
-  @media(max-width:780px){.map-wrap iframe{height:320px}}
+  @media(max-width:780px){.map-wrap iframe{height:340px}.map-wrap{margin-top:60px}}
 
   /* FOOTER */
   footer{background:var(--navy);color:#a8b8c4;padding:60px 0 30px;font-size:.92rem}
@@ -479,6 +478,16 @@
   footer a{color:#a8b8c4}
   footer a:hover{color:#fff;text-decoration:none}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem}
+  .watermark{
+    margin-top:18px;padding-top:14px;
+    border-top:1px solid rgba(255,255,255,.06);
+    text-align:center;
+    font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(168,184,196,.55);
+    font-family:'Fraunces',serif;font-weight:300;
+  }
+  .watermark a{color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:1px}
+  .watermark a:hover{color:#fff;border-color:rgba(255,255,255,.5)}
   @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
 
@@ -862,10 +871,10 @@
         <p class="form-note">Vi behandler informasjonen din konfidensielt.</p>
       </form>
     </div>
+  </div>
 
-    <div class="map-wrap reveal">
-      <iframe loading="lazy" src="https://www.google.com/maps?q=Stasjonsgata%2014%203300%20Hokksund&output=embed" title="Kart over Hokksund Tannlegesenter"></iframe>
-    </div>
+  <div class="map-wrap reveal">
+    <iframe loading="lazy" src="https://www.google.com/maps?q=Stasjonsgata%2014%203300%20Hokksund&output=embed" title="Kart over Hokksund Tannlegesenter"></iframe>
   </div>
 </section>
 
@@ -910,6 +919,9 @@
     <div class="footer-bottom">
       <span>© <span id="yr"></span> Hokksund Tannlegesenter. Alle rettigheter reservert.</span>
       <span>Org.nr. — Personvern</span>
+    </div>
+    <div class="watermark">
+      <span>Designet og utviklet av <a href="#" rel="noopener">Andreas Barbo</a></span>
     </div>
   </div>
 </footer>
