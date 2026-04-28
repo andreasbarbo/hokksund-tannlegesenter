@@ -127,20 +127,21 @@
   header.site{
     position:sticky;top:0;z-index:50;
     width:100%;margin:0;
-    -webkit-backdrop-filter:var(--glass-blur);
-    backdrop-filter:var(--glass-blur);
-    background:linear-gradient(135deg,rgba(47,71,54,.85),rgba(79,115,89,.72) 50%,rgba(126,161,133,.65));
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    background:rgba(251,246,238,.92);
     border:0;
-    border-bottom:1px solid rgba(255,255,255,.18);
-    box-shadow:0 1px 0 rgba(255,255,255,.25) inset, 0 6px 24px rgba(47,71,54,.18);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 4px 18px rgba(14,34,48,.06);
     border-radius:0;
-    color:#fff;
+    color:var(--navy);
   }
   header.site .wrap{padding:0 24px}
   header.site .nav{padding:10px 0}
-  header.site .brand{color:#fff}
-  header.site .menu a{color:rgba(255,255,255,.92)}
-  header.site .menu a:hover{color:#fff;text-shadow:0 0 12px rgba(255,255,255,.5)}
+  header.site .brand{color:var(--navy)}
+  header.site .brand-logo{filter:invert(1) brightness(.4)}
+  header.site .menu a{color:var(--navy)}
+  header.site .menu a:hover{color:var(--sage-600);text-shadow:none}
   /* Header: all three CTA elements as identical floating glass pills */
   header.site .nav-cta .btn,
   header.site .nav-cta .status-pill{
