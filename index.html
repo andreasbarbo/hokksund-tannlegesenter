@@ -214,13 +214,39 @@
     .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:18px 24px;border-bottom:1px solid var(--line);gap:14px}
   }
 
-  /* HERO */
-  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%)}
-  .hero-grid{
-    display:flex;flex-direction:column;gap:56px;
-    padding:72px 0 100px;
+  /* HERO — full bleed waiting room image */
+  .hero{
+    position:relative;overflow:hidden;min-height:88vh;
+    background:url('bilder/_TAB3708-Edit.jpg') center/cover no-repeat;
+    isolation:isolate;
   }
-  .hero-copy{max-width:780px}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(120deg, rgba(14,34,48,.55) 0%, rgba(14,34,48,.18) 55%, rgba(14,34,48,.05) 100%),
+      linear-gradient(180deg, rgba(14,34,48,.0) 40%, rgba(14,34,48,.45) 100%);
+  }
+  .hero-grid{
+    position:relative;z-index:2;
+    display:flex;flex-direction:column;gap:36px;
+    min-height:88vh;
+    padding:160px 0 100px;
+    justify-content:center;
+  }
+  .hero-copy{max-width:680px;color:#fff}
+  .hero-copy h1{color:#fff;text-shadow:0 2px 24px rgba(14,34,48,.35)}
+  .hero-copy h1 .accent{color:#cfe6d4;font-style:italic;font-weight:400}
+  .hero-copy p.lead{color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(14,34,48,.4)}
+  .hero-meta b{color:#fff!important}
+  .hero-meta span{color:rgba(255,255,255,.78)!important}
+  .hero .btn-ghost{
+    background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.10));
+    color:#fff;border-color:rgba(255,255,255,.45);
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 6px 16px rgba(0,0,0,.18);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  }
+  .hero .btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.32),rgba(255,255,255,.16));color:#fff}
+  .hero .blobs{display:none}
   .hero h1 .accent{color:var(--sage-600);font-style:italic;font-weight:400}
   .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:46ch;margin-bottom:1.8rem}
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -304,17 +330,29 @@
   .prices h2,.prices h3{color:#fff}
   .prices .eyebrow{color:var(--sage-200)}
   .prices .section-head p{color:#a8b8c4}
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .price-card{
     background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
     -webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
     border:1px solid rgba(255,255,255,.16);
     border-radius:var(--radius);
-    padding:30px 26px;
+    padding:32px 30px;
     box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 -1px 0 rgba(0,0,0,.2) inset, 0 18px 40px rgba(0,0,0,.25);
     transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
   }
   .price-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3);box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 -1px 0 rgba(0,0,0,.2) inset, 0 24px 50px rgba(0,0,0,.32)}
+  .price-card .cat{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-200);margin-bottom:.4em;display:block}
+  .price-card h3{font-size:1.3rem;margin-bottom:1.1em;color:#fff}
+  .price-line{
+    display:flex;justify-content:space-between;gap:18px;
+    padding:11px 0;
+    border-bottom:1px dashed rgba(255,255,255,.12);
+    font-size:.95rem;color:#dbe4ec;
+  }
+  .price-line:last-child{border-bottom:0}
+  .price-line .nm{flex:1}
+  .price-line .pr{font-family:'Fraunces',serif;color:#fff;font-weight:500;white-space:nowrap}
+  @media(max-width:780px){.price-grid{grid-template-columns:1fr}}
   .price-card .tag{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-200);margin-bottom:.6em;display:block}
   .price-card .amount{font-family:'Fraunces',serif;font-size:2rem;color:#fff;margin:.2em 0;font-weight:600}
   .price-card .amount small{font-family:'Inter',sans-serif;font-size:.85rem;color:#a8b8c4;font-weight:400}
@@ -353,14 +391,13 @@
     flex:0 0 calc((100% - 60px) / 4);
     scroll-snap-align:start;
     border-radius:var(--radius);
-    background:var(--glass-bg);
-    -webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
-    border:var(--glass-border);
-    box-shadow:var(--glass-shadow);
-    padding:14px 14px 22px;
-    transition:transform .3s ease, box-shadow .3s ease;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    padding:0 0 8px;
+    transition:transform .3s ease;
   }
-  .member:hover{transform:translateY(-4px);box-shadow:0 1px 0 rgba(255,255,255,.85) inset, 0 -1px 0 rgba(255,255,255,.2) inset, 0 22px 50px rgba(14,34,48,.16)}
+  .member:hover{transform:translateY(-4px)}
   .member img{
     width:100%;aspect-ratio:3/4;object-fit:cover;
     border-radius:14px;display:block;margin-bottom:16px;
@@ -459,10 +496,14 @@
 
   /* MAP / LOCATION — full bleed, butts up against footer */
   .map-wrap{
-    width:100%;margin-top:80px;margin-bottom:0;
-    overflow:hidden;line-height:0;
+    width:100%;margin:80px 0 0;
+    overflow:hidden;line-height:0;font-size:0;
+    opacity:1!important;transform:none!important;
   }
-  .contact{padding-bottom:0}
+  .map-wrap iframe{vertical-align:bottom}
+  section.contact{padding-bottom:0!important;margin-bottom:0!important}
+  main{margin-bottom:0}
+  footer{margin-top:0}
   .map-wrap iframe{
     width:100%;height:460px;border:0;display:block;
     filter:grayscale(1) contrast(1.05);
@@ -541,16 +582,6 @@
         <div><b>Mån–Fre</b><span>08:30–15:30</span></div>
       </div>
     </div>
-    <div class="hero-img reveal">
-      <img src="bilder/banner_da9343d978b34caf89ab7053d67ffefe.jpg" alt="Hokksund Tannlegesenter" />
-      <div class="badge">
-        <div class="icn">★</div>
-        <div>
-          <b>Velkommen til oss</b>
-          <span>Stasjonsgata 14, Hokksund</span>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="wave" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,80 1440,40 L1440,80 L0,80 Z" fill="#f3f6f3"/></svg>
@@ -620,43 +651,96 @@
 
     <div class="price-grid">
       <div class="price-card reveal">
-        <span class="tag">Undersøkelse</span>
-        <h3 style="color:#fff">Årlig sjekk</h3>
-        <div class="amount">fra 950 kr</div>
-        <p>Klinisk undersøkelse, to bitewing-røntgen og enkel tannrens.</p>
+        <span class="cat">Undersøkelse &amp; konsultasjon</span>
+        <h3>Førstemøte og kontroll</h3>
+        <div class="price-line"><span class="nm">Førstegangskonsultasjon</span><span class="pr">fra 1 200 kr</span></div>
+        <div class="price-line"><span class="nm">Årlig sjekk (klinisk undersøkelse)</span><span class="pr">fra 950 kr</span></div>
+        <div class="price-line"><span class="nm">Kontroll, kort</span><span class="pr">fra 550 kr</span></div>
+        <div class="price-line"><span class="nm">Akutt-undersøkelse</span><span class="pr">fra 1 100 kr</span></div>
       </div>
+
       <div class="price-card reveal">
-        <span class="tag">Forebyggende</span>
-        <h3 style="color:#fff">Tannrens hos tannpleier</h3>
-        <div class="amount">fra 750 kr</div>
-        <p>Fjerning av tannstein og polering. Anbefales 1–2 ganger i året.</p>
+        <span class="cat">Røntgen</span>
+        <h3>Diagnostikk</h3>
+        <div class="price-line"><span class="nm">Bitewing (1 stk.)</span><span class="pr">fra 180 kr</span></div>
+        <div class="price-line"><span class="nm">Periapikal røntgen (1 stk.)</span><span class="pr">fra 200 kr</span></div>
+        <div class="price-line"><span class="nm">OPG — panoramarøntgen</span><span class="pr">fra 750 kr</span></div>
+        <div class="price-line"><span class="nm">CBCT (3D, ved behov)</span><span class="pr">fra 1 800 kr</span></div>
       </div>
+
       <div class="price-card reveal">
-        <span class="tag">Restaurering</span>
-        <h3 style="color:#fff">Fylling</h3>
-        <div class="amount">fra 1 100 kr <small>/ tann</small></div>
-        <p>Tannfarget, holdbar fylling. Pris varierer med størrelse og antall flater.</p>
+        <span class="cat">Forebyggende</span>
+        <h3>Tannpleier</h3>
+        <div class="price-line"><span class="nm">Tannrens, enkel</span><span class="pr">fra 750 kr</span></div>
+        <div class="price-line"><span class="nm">Tannrens, omfattende</span><span class="pr">fra 1 200 kr</span></div>
+        <div class="price-line"><span class="nm">Fluorbehandling</span><span class="pr">fra 250 kr</span></div>
+        <div class="price-line"><span class="nm">Kostholdsveiledning</span><span class="pr">fra 600 kr</span></div>
       </div>
+
       <div class="price-card reveal">
-        <span class="tag">Estetikk</span>
-        <h3 style="color:#fff">Tannbleking</h3>
-        <div class="amount">fra 3 500 kr</div>
-        <p>Hjemmebleking med skinner tilpasset deg, eller bleking på klinikken.</p>
+        <span class="cat">Fyllinger</span>
+        <h3>Restaurering</h3>
+        <div class="price-line"><span class="nm">Fylling, 1 flate</span><span class="pr">fra 1 100 kr</span></div>
+        <div class="price-line"><span class="nm">Fylling, 2 flater</span><span class="pr">fra 1 600 kr</span></div>
+        <div class="price-line"><span class="nm">Fylling, 3+ flater</span><span class="pr">fra 2 200 kr</span></div>
+        <div class="price-line"><span class="nm">Midlertidig fylling</span><span class="pr">fra 600 kr</span></div>
       </div>
+
       <div class="price-card reveal">
-        <span class="tag">Protetikk</span>
-        <h3 style="color:#fff">Krone</h3>
-        <div class="amount">fra 8 500 kr</div>
-        <p>Helkeramisk krone. Inkluderer preparering, avtrykk og tilpasning.</p>
+        <span class="cat">Endodonti</span>
+        <h3>Rotbehandling</h3>
+        <div class="price-line"><span class="nm">Rotfylling, 1-rotet tann</span><span class="pr">fra 4 500 kr</span></div>
+        <div class="price-line"><span class="nm">Rotfylling, 2-rotet tann</span><span class="pr">fra 6 500 kr</span></div>
+        <div class="price-line"><span class="nm">Rotfylling, 3-rotet tann</span><span class="pr">fra 8 500 kr</span></div>
+        <div class="price-line"><span class="nm">Reservasjonsbehandling</span><span class="pr">fra 1 200 kr</span></div>
       </div>
+
       <div class="price-card reveal">
-        <span class="tag">Implantat</span>
-        <h3 style="color:#fff">Implantat med krone</h3>
-        <div class="amount">fra 25 000 kr</div>
-        <p>Komplett løsning — fra røntgenutredning til ferdig krone på implantat.</p>
+        <span class="cat">Protetikk</span>
+        <h3>Kroner og broer</h3>
+        <div class="price-line"><span class="nm">Helkeramisk krone</span><span class="pr">fra 8 500 kr</span></div>
+        <div class="price-line"><span class="nm">Metallkeramisk krone</span><span class="pr">fra 7 800 kr</span></div>
+        <div class="price-line"><span class="nm">Bro, per ledd</span><span class="pr">fra 8 000 kr</span></div>
+        <div class="price-line"><span class="nm">Stift med oppbygging</span><span class="pr">fra 3 200 kr</span></div>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="cat">Implantat</span>
+        <h3>Permanent erstatning</h3>
+        <div class="price-line"><span class="nm">Implantat (skrue)</span><span class="pr">fra 14 000 kr</span></div>
+        <div class="price-line"><span class="nm">Krone på implantat</span><span class="pr">fra 11 000 kr</span></div>
+        <div class="price-line"><span class="nm">Implantat med krone, totalt</span><span class="pr">fra 25 000 kr</span></div>
+        <div class="price-line"><span class="nm">Bentransplantasjon (ved behov)</span><span class="pr">fra 6 500 kr</span></div>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="cat">Proteser</span>
+        <h3>Avtagbare løsninger</h3>
+        <div class="price-line"><span class="nm">Helprotese, over- eller underkjeve</span><span class="pr">fra 14 500 kr</span></div>
+        <div class="price-line"><span class="nm">Helprotese, begge kjever</span><span class="pr">fra 26 000 kr</span></div>
+        <div class="price-line"><span class="nm">Delprotese</span><span class="pr">fra 12 000 kr</span></div>
+        <div class="price-line"><span class="nm">Reparasjon av protese</span><span class="pr">fra 1 200 kr</span></div>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="cat">Estetikk</span>
+        <h3>Smile design</h3>
+        <div class="price-line"><span class="nm">Tannbleking — hjemmebleking</span><span class="pr">fra 3 500 kr</span></div>
+        <div class="price-line"><span class="nm">Tannbleking — på klinikken</span><span class="pr">fra 4 800 kr</span></div>
+        <div class="price-line"><span class="nm">Fasett, per tann</span><span class="pr">fra 8 500 kr</span></div>
+        <div class="price-line"><span class="nm">Estetisk fylling, front</span><span class="pr">fra 1 800 kr</span></div>
+      </div>
+
+      <div class="price-card reveal">
+        <span class="cat">Kirurgi</span>
+        <h3>Trekking og inngrep</h3>
+        <div class="price-line"><span class="nm">Tanntrekk, ukomplisert</span><span class="pr">fra 1 200 kr</span></div>
+        <div class="price-line"><span class="nm">Tanntrekk, komplisert</span><span class="pr">fra 2 500 kr</span></div>
+        <div class="price-line"><span class="nm">Operativ fjerning av visdomstann</span><span class="pr">fra 4 200 kr</span></div>
+        <div class="price-line"><span class="nm">Lokalbedøvelse</span><span class="pr">inkludert</span></div>
       </div>
     </div>
-    <p class="price-note reveal">Trygderefusjon kan gjelde for enkelte behandlinger. Vi hjelper deg gjerne å finne ut av dette.</p>
+    <p class="price-note reveal">Alle priser er veiledende. Du får alltid et nøyaktig prisoverslag før behandlingen starter. Trygderefusjon fra HELFO kan gjelde for enkelte behandlinger — vi hjelper deg gjerne med å finne ut av dette.</p>
   </div>
   <div class="wave" aria-hidden="true">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,50 C260,90 540,10 900,40 C1140,60 1320,40 1440,30 L1440,0 L0,0 Z" fill="#0e2230"/></svg>
@@ -681,56 +765,60 @@
 
     <div class="carousel reveal" id="team-carousel" tabindex="0" aria-label="Team-medlemmer">
       <article class="member">
-        <img src="bilder/9d9726_b13def73fffd489882cf2a39eb89780d~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannlege</span>
+        <img src="bilder/Ansatte/9d9726_5709b20d16c748d5910fba307d725a94~mv2_d_4912_7360_s_4_2.jpg" alt="Ingun Løkensgard" />
+        <h4>Ingun Løkensgard</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_4b47825a858947f2b6a1b3e20173b22b~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannlege</span>
+        <img src="bilder/Ansatte/9d9726_c5de502cf5ed40feb61318f4809c5e9b~mv2_d_4912_7360_s_4_2.jpg" alt="Linda Dukefos" />
+        <h4>Linda Dukefos</h4><span>Tannlege · Implantatprotetikk &amp; odontofobi</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_a587ebb0a6254f548a4bd595db4a33b5~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannlege</span>
+        <img src="bilder/Ansatte/9d9726_d9734b2fefc6433e8aa68c0edeaa9358~mv2_d_4912_7360_s_4_2.jpg" alt="Veronica Loe Larsen" />
+        <h4>Veronica Loe Larsen</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_08f75b2525c740449045a3bdc81ad607~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannlege</span>
+        <img src="bilder/Ansatte/9d9726_a587ebb0a6254f548a4bd595db4a33b5~mv2_d_4912_7360_s_4_2.jpg" alt="Sigrid Bohne-Friberg" />
+        <h4>Sigrid Bohne-Friberg</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_49d2523dfeb4492e8a2172c023536623~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannpleier</span>
+        <img src="bilder/Ansatte/9d9726_49d2523dfeb4492e8a2172c023536623~mv2_d_4912_7360_s_4_2.jpg" alt="Line Gabriella Nagy" />
+        <h4>Line Gabriella Nagy</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_5709b20d16c748d5910fba307d725a94~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannpleier</span>
+        <img src="bilder/Ansatte/9d9726_08f75b2525c740449045a3bdc81ad607~mv2_d_4912_7360_s_4_2.jpg" alt="Kristine Andersen" />
+        <h4>Kristine Andersen</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_74bdf4f4dee646059ee83fc2f7d2f920~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannhelsesekretær</span>
+        <img src="bilder/Ansatte/9d9726_74bdf4f4dee646059ee83fc2f7d2f920~mv2_d_4912_7360_s_4_2.jpg" alt="Silvana Milkovska" />
+        <h4>Silvana Milkovska</h4><span>Tannlege</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_9fcf9fbbc71442aeb395d7d6aade887b~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannhelsesekretær</span>
+        <img src="bilder/Ansatte/9d9726_fd5a722022444f3eabf782ca7594ec07~mv2_d_4912_7360_s_4_2.jpg" alt="Randi Engebretsen" />
+        <h4>Randi Engebretsen</h4><span>Aut. tannhelsesekretær</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_c5de502cf5ed40feb61318f4809c5e9b~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannhelsesekretær</span>
+        <img src="bilder/Ansatte/9d9726_9fcf9fbbc71442aeb395d7d6aade887b~mv2_d_4912_7360_s_4_2.jpg" alt="Marianne Nysether" />
+        <h4>Marianne Nysether</h4><span>Aut. tannhelsesekretær</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_d9734b2fefc6433e8aa68c0edeaa9358~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Tannhelsesekretær</span>
+        <img src="bilder/Ansatte/9d9726_e8ac07d6155d4b83946bbc6d4ac68658~mv2_d_4912_7360_s_4_2.jpg" alt="Aud Edith Kristoffersen" />
+        <h4>Aud Edith Kristoffersen</h4><span>Aut. tannhelsesekretær</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_e8ac07d6155d4b83946bbc6d4ac68658~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Resepsjon</span>
+        <img src="bilder/Ansatte/9d9726_eac9f9061520437da6060634a8404cae~mv2_d_4912_7360_s_4_2.jpg" alt="Bente Amundsen" />
+        <h4>Bente Amundsen</h4><span>Aut. tannhelsesekretær</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_eac9f9061520437da6060634a8404cae~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Resepsjon</span>
+        <img src="bilder/Ansatte/9d9726_4b47825a858947f2b6a1b3e20173b22b~mv2_d_4912_7360_s_4_2.jpg" alt="Trude H. Dokken" />
+        <h4>Trude H. Dokken</h4><span>Aut. tannhelsesekretær</span>
       </article>
       <article class="member">
-        <img src="bilder/9d9726_fd5a722022444f3eabf782ca7594ec07~mv2_d_4912_7360_s_4_2.jpg" alt="Portrett" />
-        <h4>Navn Etternavn</h4><span>Resepsjon</span>
+        <img src="bilder/Ansatte/9d9726_b13def73fffd489882cf2a39eb89780d~mv2_d_4912_7360_s_4_2.jpg" alt="Derya Aktas" />
+        <h4>Derya Aktas</h4><span>Aut. tannhelsesekretær</span>
+      </article>
+      <article class="member">
+        <img src="bilder/Ansatte/9d9726_b59a563bb10b45efb776bad9b467e5b8~mv2.jpg" alt="Zeynep Ipek" />
+        <h4>Zeynep Ipek</h4><span>Aut. tannhelsesekretær</span>
       </article>
     </div>
   </div>
