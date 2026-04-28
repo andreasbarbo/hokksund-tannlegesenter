@@ -278,8 +278,10 @@
   }
 
   /* WAVE */
-  .wave{display:block;width:100%;height:80px}
+  .wave{display:block;width:100%;height:80px;position:relative;z-index:3}
   .wave svg{display:block;width:100%;height:100%}
+  /* Hero wave must sit above the dark overlay */
+  .hero > .wave{z-index:5}
 
   /* SECTION */
   section{padding:90px 0;position:relative}
