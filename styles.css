@@ -198,20 +198,33 @@
   @media(max-width:600px){header.site{border-radius:24px;margin:0 8px}}
   @media(max-width:600px){header.site{border-radius:24px;margin:0 8px}}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .nav-split{display:grid;grid-template-columns:1fr auto 1fr;gap:32px}
+  .nav-split .menu-left{justify-self:end}
+  .nav-split .menu-right{justify-self:start}
+  .nav-split .brand{justify-self:center}
   .brand{display:flex;align-items:center;gap:12px;font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;color:var(--navy)}
   .brand .dot{width:34px;height:34px;border-radius:50%;background:var(--sage-600);display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Fraunces',serif}
   .brand small{display:block;font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;font-weight:500}
   .brand-logo{height:42px;width:auto;display:block}
   @media(max-width:600px){.brand-logo{height:34px}}
-  .menu{display:flex;gap:28px;align-items:center}
-  .menu a{color:var(--navy);font-size:.95rem;font-weight:500}
+  .menu{display:flex;gap:32px;align-items:center}
+  .menu a{color:var(--navy);font-size:.95rem;font-weight:500;letter-spacing:.005em}
   .menu a:hover{color:var(--sage-600);text-decoration:none}
-  .nav-cta{display:flex;gap:10px;align-items:center}
   .menu-toggle{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
   @media(max-width:900px){
-    .menu,.nav-cta .btn-ghost{display:none}
-    .menu-toggle{display:block}
-    .menu.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:18px 24px;border-bottom:1px solid var(--line);gap:14px}
+    .nav-split{grid-template-columns:auto 1fr;gap:12px}
+    .nav-split .brand{justify-self:start;grid-column:1}
+    .menu{display:none}
+    .menu-toggle{display:block;justify-self:end;grid-column:2}
+    .menu.open{
+      display:flex;position:absolute;left:0;right:0;
+      background:var(--sage-600);flex-direction:column;
+      align-items:flex-start;padding:18px 24px;
+      gap:14px;
+    }
+    .menu-left.open{top:100%}
+    .menu-right.open{top:calc(100% + 156px);border-top:1px solid rgba(255,255,255,.18)}
+    .menu.open a{color:#fff}
   }
 
   /* HERO — full bleed waiting room image */

@@ -13,24 +13,21 @@
 <body>
 
 <header class="site">
-  <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Hokksund Tannlegesenter">
-      <img src="bilder/Logo-071015_redigert.avif" alt="Hokksund Tannlegesenter" class="brand-logo" />
-    </a>
-    <nav class="menu" id="menu">
+  <div class="wrap nav nav-split">
+    <nav class="menu menu-left" id="menu-left">
       <a href="tjenester.html">Tjenester</a>
       <a href="#om">Om oss</a>
       <a href="#priser">Priser</a>
+    </nav>
+    <a href="#top" class="brand" aria-label="Hokksund Tannlegesenter">
+      <img src="bilder/Logo-071015_redigert.avif" alt="Hokksund Tannlegesenter" class="brand-logo" />
+    </a>
+    <nav class="menu menu-right" id="menu-right">
       <a href="#team">Team</a>
       <a href="#faq">Spørsmål</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <div class="nav-cta">
-      <a href="tel:+4732752045" class="btn btn-ghost">32 75 20 45</a>
-      <a href="#bestill" class="btn btn-primary">Bestill time</a>
-      <span class="status-pill" id="open-status" aria-live="polite"><span class="dot"></span><span class="label">Sjekker…</span></span>
-      <button class="menu-toggle" aria-label="Meny" onclick="document.getElementById('menu').classList.toggle('open')">≡</button>
-    </div>
+    <button class="menu-toggle" aria-label="Meny" onclick="document.querySelectorAll('.menu').forEach(m=>m.classList.toggle('open'))">≡</button>
   </div>
 </header>
 
@@ -413,7 +410,7 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // Close mobile menu on click
-  document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+  document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))));
 
   // Open status pill
   (function(){

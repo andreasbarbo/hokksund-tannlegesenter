@@ -99,24 +99,21 @@
 <body>
 
 <header class="site">
-  <div class="wrap nav">
-    <a href="index.html" class="brand" aria-label="Hokksund Tannlegesenter">
-      <img src="bilder/Logo-071015_redigert.avif" alt="Hokksund Tannlegesenter" class="brand-logo" />
-    </a>
-    <nav class="menu" id="menu">
+  <div class="wrap nav nav-split">
+    <nav class="menu menu-left" id="menu-left">
       <a href="tjenester.html" class="active">Tjenester</a>
       <a href="index.html#om">Om oss</a>
       <a href="index.html#priser">Priser</a>
+    </nav>
+    <a href="index.html" class="brand" aria-label="Hokksund Tannlegesenter">
+      <img src="bilder/Logo-071015_redigert.avif" alt="Hokksund Tannlegesenter" class="brand-logo" />
+    </a>
+    <nav class="menu menu-right" id="menu-right">
       <a href="index.html#team">Team</a>
       <a href="index.html#faq">Spørsmål</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
-    <div class="nav-cta">
-      <a href="tel:+4732752045" class="btn btn-ghost">32 75 20 45</a>
-      <a href="index.html#bestill" class="btn btn-primary">Bestill time</a>
-      <span class="status-pill" id="open-status" aria-live="polite"><span class="dot"></span><span class="label">Sjekker…</span></span>
-      <button class="menu-toggle" aria-label="Meny" onclick="document.getElementById('menu').classList.toggle('open')">≡</button>
-    </div>
+    <button class="menu-toggle" aria-label="Meny" onclick="document.querySelectorAll('.menu').forEach(m=>m.classList.toggle('open'))">≡</button>
   </div>
 </header>
 
@@ -394,7 +391,7 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+  document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))));
   // Open status pill
   (function(){
     const el = document.getElementById('open-status');
