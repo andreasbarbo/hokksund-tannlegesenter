@@ -220,7 +220,7 @@
   /* HERO — full bleed waiting room image */
   .hero{
     position:relative;overflow:hidden;min-height:88vh;
-    background:url('bilder/_TAB3708-Edit.jpg') center/cover no-repeat;
+    background:url('bilder/nordlys.jpg') center/cover no-repeat;
     isolation:isolate;
   }
   .hero::before{
