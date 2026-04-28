@@ -237,11 +237,11 @@
     justify-content:center;
   }
   .hero-copy{max-width:680px;color:#fff}
-  .hero-copy h1{color:#fff;text-shadow:0 2px 24px rgba(14,34,48,.35)}
-  .hero-copy h1 .accent{color:#cfe6d4;font-style:italic;font-weight:400}
-  .hero-copy p.lead{color:rgba(255,255,255,.92);text-shadow:0 1px 8px rgba(14,34,48,.4)}
-  .hero-meta b{color:#fff!important}
-  .hero-meta span{color:rgba(255,255,255,.78)!important}
+  .hero-copy h1{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .hero-copy h1 .accent{color:#fff;font-style:italic;font-weight:400}
+  .hero-copy p.lead{color:#fff!important;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+  .hero-meta b{color:#fff!important;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+  .hero-meta span{color:#fff!important;text-shadow:0 1px 10px rgba(0,0,0,.5)}
   .hero .btn-ghost{
     background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.10));
     color:#fff;border-color:rgba(255,255,255,.45);
