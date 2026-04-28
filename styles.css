@@ -440,6 +440,41 @@
   @media(max-width:780px){.member{flex-basis:calc((100% - 22px) / 2)}}
   @media(max-width:520px){.member{flex-basis:80%}}
 
+  /* ANMELDELSER */
+  .reviews{background:var(--sage-50)}
+  .rev-rating{
+    margin-top:.6em;color:var(--muted);font-size:1rem;
+  }
+  .rev-rating .stars{color:#e8b441;letter-spacing:.1em;font-size:1.2rem;margin-right:.4em}
+  .rev-rating strong{color:var(--navy);font-weight:600}
+  .rev-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .rev-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px;
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;
+  }
+  .rev-card .rev-stars{color:#e8b441;letter-spacing:.1em;font-size:1rem;margin-bottom:8px}
+  .rev-card h4{margin:0 0 .5em;font-size:1.15rem;font-family:'Fraunces',serif;color:var(--navy)}
+  .rev-card p{
+    color:var(--text);font-size:.97rem;line-height:1.6;
+    flex:1;font-style:italic;
+  }
+  .rev-card footer{
+    margin-top:18px;padding-top:14px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;
+    font-size:.85rem;color:var(--muted);
+  }
+  .rev-card footer b{color:var(--navy);font-weight:500}
+  .rev-foot{text-align:center;margin-top:36px}
+  @media(max-width:900px){.rev-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.rev-grid{grid-template-columns:1fr}}
+
   /* FAQ */
   .faq{background:var(--cream)}
   .faq-list{max-width:840px;margin:0 auto;display:grid;gap:14px}
