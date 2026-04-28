@@ -51,8 +51,8 @@
     box-shadow:var(--glass-shadow-dark);
     border-radius:var(--radius);
   }
-  /* Ambient color blobs that the glass refracts */
-  .blobs{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  /* Ambient color blobs — disabled */
+  .blobs{display:none}
   .blobs::before,.blobs::after,.blobs span{
     content:"";position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;
   }
