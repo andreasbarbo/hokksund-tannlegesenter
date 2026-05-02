@@ -226,8 +226,8 @@
   }
   .hero::before{
     content:"";position:absolute;inset:-20px;z-index:0;
-    background:url('bilder/nordlys.jpg') center/cover no-repeat;
-    filter:blur(14px) brightness(.85);
+    background:url('bilder/_TAB3708-Edit.jpg') center/cover no-repeat;
+    filter:brightness(.85);
   }
   .hero::after{
     content:"";position:absolute;inset:0;z-index:1;
