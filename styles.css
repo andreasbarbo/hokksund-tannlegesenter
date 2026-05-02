@@ -221,14 +221,19 @@
   /* HERO — full bleed waiting room image */
   .hero{
     position:relative;overflow:hidden;min-height:88vh;
-    background:url('bilder/nordlys.jpg') center/cover no-repeat;
+    background:#0a1722;
     isolation:isolate;
   }
   .hero::before{
-    content:"";position:absolute;inset:0;z-index:0;
+    content:"";position:absolute;inset:-20px;z-index:0;
+    background:url('bilder/nordlys.jpg') center/cover no-repeat;
+    filter:blur(14px) brightness(.85);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:1;
     background:
-      linear-gradient(120deg, rgba(14,34,48,.55) 0%, rgba(14,34,48,.18) 55%, rgba(14,34,48,.05) 100%),
-      linear-gradient(180deg, rgba(14,34,48,.0) 40%, rgba(14,34,48,.45) 100%);
+      linear-gradient(120deg, rgba(14,34,48,.55) 0%, rgba(14,34,48,.20) 55%, rgba(14,34,48,.10) 100%),
+      linear-gradient(180deg, rgba(14,34,48,.0) 40%, rgba(14,34,48,.50) 100%);
   }
   .hero-grid{
     position:relative;z-index:2;
@@ -400,6 +405,18 @@
 
   /* TEAM — carousel */
   .team{background:var(--cream-2)}
+  .team-banner{margin-bottom:48px}
+  .team-banner img{
+    width:100%;height:auto;display:block;
+    border-radius:24px;
+    border-top-left-radius:160px;
+    box-shadow:var(--shadow);
+    aspect-ratio:16/9;object-fit:cover;
+  }
+  @media(max-width:780px){
+    .team-banner{margin-bottom:32px}
+    .team-banner img{border-top-left-radius:80px;aspect-ratio:4/3}
+  }
   .team-head{
     display:flex;justify-content:space-between;align-items:center;
     gap:24px;margin-bottom:40px;flex-wrap:wrap;
