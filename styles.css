@@ -466,7 +466,8 @@
     flex:1;font-style:italic;
   }
   .rev-card footer{
-    margin-top:18px;padding-top:14px;
+    margin-top:18px;padding:14px 0 0;
+    background:transparent;
     border-top:1px solid var(--line);
     display:flex;justify-content:space-between;
     font-size:.85rem;color:var(--muted);
