@@ -479,8 +479,9 @@
   .reviews{background:var(--sage-50)}
   .rev-compact{text-align:center;max-width:560px;margin:0 auto}
   .rev-compact .stars-big{
-    color:#e8b441;letter-spacing:.18em;font-size:2.4rem;margin-bottom:.3em;
+    color:#e8b441;display:flex;justify-content:center;gap:8px;margin-bottom:.6em;
   }
+  .rev-compact .stars-big .star{width:42px;height:42px}
   .rev-compact h2{margin-bottom:.4em}
   .rev-compact p{color:var(--muted);font-size:1.02rem;margin:0}
   .rev-compact a{color:var(--sage-600);font-weight:500}
