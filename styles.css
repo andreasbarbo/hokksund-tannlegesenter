@@ -294,7 +294,7 @@
   .hero .btn-ghost:hover{background:linear-gradient(135deg,rgba(255,255,255,.32),rgba(255,255,255,.16));color:#fff}
   .hero .blobs{display:none}
   .hero h1 .accent{color:#fff;font-style:italic;font-weight:400}
-  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:46ch;margin-bottom:1.8rem}
+  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin:0 auto 1.8rem}
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
   .hero-meta{display:flex;gap:28px;margin-top:2.5rem;flex-wrap:wrap}
   .hero-meta div{display:flex;flex-direction:column}
