@@ -257,7 +257,7 @@
     position:relative;z-index:2;
     display:flex;flex-direction:column;align-items:center;
     text-align:center;
-    padding:60px 0 80px;
+    padding:24px 0 64px;
   }
   .hero-copy{color:#fff;max-width:780px;text-align:center}
   .hero-copy .hero-cta{justify-content:center}
