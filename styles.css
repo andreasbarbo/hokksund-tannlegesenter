@@ -250,28 +250,22 @@
   /* HERO — full bleed waiting room image */
   .hero{
     position:relative;overflow:hidden;min-height:88vh;
-    background:linear-gradient(135deg, #5fb8b4 0%, #4aa6a3 50%, #3a8e8b 100%);
+    background:#4aa6a3;
     isolation:isolate;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,.18), transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(0,0,0,.18), transparent 60%);
   }
   .hero-grid{
     position:relative;z-index:2;
-    display:grid;grid-template-columns:1fr 1fr;gap:60px;
-    align-items:center;justify-items:center;
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;
+    align-items:center;
     min-height:88vh;
     padding:140px 0 100px;
   }
-  .hero-copy{color:#fff;max-width:520px}
+  .hero-copy{color:#fff;max-width:560px;justify-self:end}
   .hero-photo{
     width:100%;
     border-radius:24px;overflow:hidden;
-    box-shadow:0 30px 80px rgba(0,0,0,.45);
-    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 40px 100px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.22);
     transform:rotate(1.5deg);
     line-height:0;
   }
