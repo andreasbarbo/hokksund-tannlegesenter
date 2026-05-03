@@ -249,16 +249,15 @@
 
   /* HERO — full bleed waiting room image */
   .hero{
-    position:relative;overflow:hidden;min-height:88vh;
+    position:relative;overflow:hidden;
     background:#4aa6a3;
     isolation:isolate;
   }
   .hero-grid{
     position:relative;z-index:2;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    display:flex;flex-direction:column;align-items:center;
     text-align:center;
-    min-height:88vh;
-    padding:140px 0 100px;
+    padding:60px 0 80px;
   }
   .hero-copy{color:#fff;max-width:780px;text-align:center}
   .hero-copy .hero-cta{justify-content:center}
