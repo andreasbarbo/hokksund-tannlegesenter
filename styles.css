@@ -280,8 +280,14 @@
     color:#ffffff;
     font-weight:600;
     letter-spacing:-0.025em;
+    margin-bottom:.5em;
   }
   .hero-copy h1 .accent{color:#ffffff;font-style:italic;font-weight:500}
+  .hero-logo{
+    display:block;margin:0 auto 1.6rem;
+    max-width:min(560px, 80%);
+    width:100%;height:auto;
+  }
   .hero-copy p.lead{color:#ffffff!important;font-weight:500}
   .hero-meta b{color:#fff!important;font-weight:600}
   .hero-meta span{color:#fff!important}
