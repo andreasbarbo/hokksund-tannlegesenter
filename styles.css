@@ -292,7 +292,7 @@
   }
   .hero-copy h1 .accent{color:#ffffff;font-style:italic;font-weight:500}
   .hero-team{
-    display:block;margin:0 auto;
+    display:block;margin:0 auto 28px;
     max-width:min(820px, 92%);
     width:auto;
     max-height:38vh;
