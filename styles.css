@@ -234,24 +234,54 @@
     .nav-split{grid-template-columns:auto 1fr;gap:12px}
     .nav-split .brand{justify-self:start;grid-column:1}
     .menu{display:none}
-    .menu-toggle{display:block;justify-self:end;grid-column:2}
+    .menu-toggle{display:block;justify-self:end;grid-column:2;transition:transform .25s ease}
     .menu.open{
       display:flex!important;
       position:absolute;left:0;right:0;width:100%;
-      background:var(--sage-600);
+      background:linear-gradient(180deg,#5a7459 0%,#4f6750 100%);
       flex-direction:column;align-items:stretch;
-      padding:0 22px;gap:0;
+      padding:0 24px;gap:0;
       z-index:60;
+      box-shadow:0 14px 30px rgba(14,34,48,.20);
+      animation:menuSlide .35s cubic-bezier(.4,0,.2,1) both;
     }
-    .menu-left.open{top:100%;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
-    .menu-right.open{top:calc(100% + 168px);padding-bottom:14px}
+    .menu-left.open{
+      top:100%;padding-top:6px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .menu-right.open{
+      top:calc(100% + 158px);
+      padding-bottom:18px;
+      border-radius:0 0 24px 24px;
+    }
     .menu.open a{
-      color:#fff!important;
-      padding:14px 4px;
-      border-bottom:1px solid rgba(255,255,255,.14);
-      font-size:1rem;
+      color:rgba(255,255,255,.92)!important;
+      padding:16px 6px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      font-size:1.05rem;
+      font-weight:500;
+      letter-spacing:.01em;
+      transition:color .2s ease, padding-left .2s ease;
+      position:relative;
     }
+    .menu.open a:hover,
+    .menu.open a:active{
+      color:#fff!important;
+      padding-left:14px;
+    }
+    .menu.open a::before{
+      content:"";position:absolute;left:0;top:50%;
+      width:0;height:2px;background:#fff;
+      transform:translateY(-50%);
+      transition:width .25s ease;
+    }
+    .menu.open a:hover::before,
+    .menu.open a:active::before{width:8px}
     .menu-right.open a:last-child{border-bottom:0}
+  }
+  @keyframes menuSlide{
+    from{opacity:0;transform:translateY(-8px)}
+    to{opacity:1;transform:none}
   }
 
   /* HERO — full bleed waiting room image */
