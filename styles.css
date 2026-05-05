@@ -230,19 +230,31 @@
   .menu a:hover{color:var(--sage-600);text-decoration:none}
   .menu-toggle{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
   @media(max-width:900px){
+    header.site{position:relative}
     .nav-split{grid-template-columns:auto 1fr;gap:12px}
     .nav-split .brand{justify-self:start;grid-column:1}
     .menu{display:none}
     .menu-toggle{display:block;justify-self:end;grid-column:2}
     .menu.open{
-      display:flex;position:absolute;left:0;right:0;
-      background:var(--sage-600);flex-direction:column;
-      align-items:flex-start;padding:18px 24px;
-      gap:14px;
+      display:flex!important;
+      position:absolute;
+      top:100%;left:0;right:0;width:100%;
+      background:var(--sage-600);
+      flex-direction:column;align-items:stretch;
+      padding:14px 22px;gap:0;
+      border-top:1px solid rgba(255,255,255,.18);
+      z-index:60;
     }
-    .menu-left.open{top:100%}
-    .menu-right.open{top:calc(100% + 156px);border-top:1px solid rgba(255,255,255,.18)}
-    .menu.open a{color:#fff}
+    .menu-right.open{border-top:0;padding-top:0}
+    .menu-left.open + * + .menu-right.open,
+    .menu-right.open{top:auto;position:relative}
+    .menu.open a{
+      color:#fff!important;
+      padding:14px 4px;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      font-size:1rem;
+    }
+    .menu.open a:last-child{border-bottom:0}
   }
 
   /* HERO — full bleed waiting room image */
@@ -417,7 +429,6 @@
     width:100%;height:auto;display:block;
     aspect-ratio:977/551;object-fit:cover;
     border-radius:24px;
-    border-top-left-radius:160px;
     box-shadow:var(--shadow);
   }
   .about-text ul{list-style:none;padding:0;margin:1.4em 0 0;display:grid;gap:14px}
