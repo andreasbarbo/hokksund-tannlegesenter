@@ -685,6 +685,8 @@
   @media(max-width:600px){
     section{padding:64px 0}
     .wrap{padding:0 18px}
+    header.site .wrap{padding:0 24px}
+    .menu-toggle{padding:6px 4px;margin-right:8px;font-size:1.7rem}
     .section-head{margin-bottom:36px}
     .hero-grid{padding:14px 0 20px;gap:12px}
     .hero-grid h1{font-size:clamp(1.4rem,5.6vw,2rem)}
