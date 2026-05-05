@@ -256,6 +256,23 @@
     display:flex;flex-direction:column;
   }
   .hero > .wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+  .hero-decor{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    color:#ffffff;
+  }
+  .hero-decor .d{position:absolute;opacity:.10}
+  .hero-decor .d1{top:8%;left:5%;width:90px;transform:rotate(-15deg)}
+  .hero-decor .d2{top:18%;right:6%;width:110px;transform:rotate(20deg)}
+  .hero-decor .d3{bottom:24%;left:8%;width:80px;transform:rotate(8deg)}
+  .hero-decor .d4{top:55%;right:12%;width:60px;opacity:.14}
+  .hero-decor .d5{bottom:8%;right:18%;width:100px;transform:rotate(-25deg)}
+  .hero-decor .d6{bottom:14%;left:22%;width:70px;transform:rotate(35deg);opacity:.08}
+  @media(max-width:780px){
+    .hero-decor .d1,.hero-decor .d3,.hero-decor .d6{display:none}
+    .hero-decor .d2{width:80px;top:6%;right:4%}
+    .hero-decor .d4{width:48px}
+    .hero-decor .d5{width:70px;bottom:4%;right:8%}
+  }
   .hero-grid{
     position:relative;z-index:2;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
