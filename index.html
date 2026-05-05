@@ -466,11 +466,20 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // Close mobile menu on click
-  document.querySelectorAll('.menu a, .menu-mobile a').forEach(a=>a.addEventListener('click',()=>{
-    document.getElementById('menu-mobile')?.classList.remove('open');
-    document.querySelector('.menu-toggle')?.classList.remove('is-open');
-  }));
+  // Close mobile menu on link click or click outside
+  (function(){
+    const menu = document.getElementById('menu-mobile');
+    const toggle = document.querySelector('.menu-toggle');
+    if(!menu || !toggle) return;
+    const closeMenu = () => { menu.classList.remove('open'); toggle.classList.remove('is-open'); };
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', (e) => {
+      if(!menu.classList.contains('open')) return;
+      if(menu.contains(e.target) || toggle.contains(e.target)) return;
+      closeMenu();
+    });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+  })();
 
   // Open status pill
   (function(){
