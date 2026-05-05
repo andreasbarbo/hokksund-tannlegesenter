@@ -27,8 +27,16 @@
       <a href="#faq">Spørsmål</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <button class="menu-toggle" aria-label="Meny" onclick="document.querySelectorAll('.menu').forEach(m=>m.classList.toggle('open'))">≡</button>
+    <button class="menu-toggle" aria-label="Meny" onclick="document.getElementById('menu-mobile').classList.toggle('open');this.classList.toggle('is-open')">≡</button>
   </div>
+  <nav class="menu menu-mobile" id="menu-mobile" aria-label="Mobilmeny">
+    <a href="#tjenester">Tjenester</a>
+    <a href="#om">Om oss</a>
+    <a href="#priser">Priser</a>
+    <a href="#team">Team</a>
+    <a href="#faq">Spørsmål</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
 </header>
 
 <main id="top">
@@ -459,7 +467,10 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // Close mobile menu on click
-  document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.querySelectorAll('.menu').forEach(m=>m.classList.remove('open'))));
+  document.querySelectorAll('.menu a, .menu-mobile a').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('menu-mobile')?.classList.remove('open');
+    document.querySelector('.menu-toggle')?.classList.remove('is-open');
+  }));
 
   // Open status pill
   (function(){
