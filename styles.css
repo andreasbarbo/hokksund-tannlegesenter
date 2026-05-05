@@ -215,8 +215,6 @@
   }
   @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.7}}
   @media(max-width:560px){.status-pill .label{display:none}.status-pill{padding:.55rem .7rem}}
-  @media(max-width:600px){header.site{border-radius:24px;margin:0 8px}}
-  @media(max-width:600px){header.site{border-radius:24px;margin:0 8px}}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
   .nav-split{display:grid;grid-template-columns:1fr auto 1fr;gap:32px}
   .nav-split .menu-left{justify-self:end}
@@ -253,6 +251,7 @@
     background:#4aa6a3;
     isolation:isolate;
     min-height:calc(100vh - 60px);
+    min-height:calc(100dvh - 60px);
     display:flex;flex-direction:column;
   }
   .hero > .wrap{flex:1;display:flex;flex-direction:column;justify-content:center}
@@ -680,3 +679,29 @@
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* iPhone fine-tuning */
+  html,body{overflow-x:hidden}
+  @media(max-width:600px){
+    section{padding:64px 0}
+    .wrap{padding:0 18px}
+    .section-head{margin-bottom:36px}
+    .hero-grid{padding:14px 0 20px;gap:12px}
+    .hero-grid h1{font-size:clamp(1.4rem,5.6vw,2rem)}
+    .hero-grid p.lead{font-size:.94rem;padding:0 6px}
+    .hero-team{max-height:26vh;border-radius:14px;margin-bottom:18px}
+    .hero-cta{flex-wrap:wrap;justify-content:center;gap:10px}
+    .hero-cta .btn{padding:.7rem 1.1rem;font-size:.88rem}
+    .field input,.field select,.field textarea{font-size:16px}
+    form.book{padding:24px}
+    .map-wrap iframe{height:280px}
+    footer{padding:48px 0 24px}
+    .footer-bottom{flex-direction:column;align-items:flex-start;font-size:.78rem}
+    .rev-compact .stars-big .star{width:32px;height:32px}
+    .faq-item summary{padding:18px 20px;font-size:1rem}
+    .faq-item .answer{padding:0 20px 20px;font-size:.94rem}
+  }
+  @media(max-width:380px){
+    .hero-grid h1{font-size:1.3rem}
+    .hero-team{max-height:22vh}
+  }
